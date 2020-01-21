@@ -1,0 +1,72 @@
+<head>
+    <Title>Rock, Paper, Scissors</Title>
+</head>
+<body>
+    <script>
+        function computerPlay(){
+            let i = Math.floor(Math.random() * 3);
+
+            switch (i){
+                case 0:
+                    return 'rock';
+                    break;
+                
+                case 1:
+                    return 'paper';
+                    break;
+                case 2:
+                    return 'scissors';
+                    break;
+            }
+        }
+        
+        function playRound(playerSelection, computerSelection){
+            playerSelection = playerSelection.toLowerCase();
+
+            if (playerSelection == 'rock'){
+                if (computerSelection == 'rock'){
+                    return 'Round Draw - Rock and Rock';
+                }
+                if (computerSelection == 'paper'){
+                    return 'You Lose - Paper beats Rock';
+                }
+                if (computerSelection == 'scissors') {
+                    return 'You Win - Rock beats Scissors';
+                }
+            } else if (playerSelection == 'paper') {
+                if (computerSelection == 'rock') {
+                    return 'You Win - Paper beats Rock';
+                }
+                if (computerSelection == 'paper') {
+                    return 'Round Draw - Paper and Paper';
+                }
+                if (computerSelection == 'scissors') {
+                    return 'You Lose - Scissors beats Paper';
+                }
+            } else if (playerSelection == 'scissors') {
+                if (computerSelection == 'rock') {
+                    return 'You Lose - Rock beats Scissors';
+                }
+                if (computerSelection == 'paper') {
+                    return 'You Win - Paper beats Scissors';
+                }
+                if (computerSelection == 'scissors') {
+                    return 'Draw - Scissors and Scissors'
+                }
+            } else {
+                return 'Please enter a valid selection';
+            }
+        }
+
+        function game(){
+
+            for (i = 0; i < 5; i++){
+                let playerSelection = prompt('Please enter your selection');
+                console.log(playRound(playerSelection, computerPlay()));
+            }
+        }
+        game();
+             
+        
+    </script>
+</body>
